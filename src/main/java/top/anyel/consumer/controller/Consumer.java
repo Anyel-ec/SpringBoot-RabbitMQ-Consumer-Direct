@@ -1,0 +1,22 @@
+package top.anyel.consumer.controller;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+import top.anyel.consumer.model.Message;
+
+@Slf4j
+@Component
+public class Consumer {
+
+    @RabbitListener(queues = "queue.A")
+    private void receive(Message message){
+        log.info("Message received from QUEUE.A ->{}", message);
+    }
+
+    @RabbitListener(queues = "queue.B")
+    private void receiveFromB(Message message){
+        log.info("Message received from QUEUE.B ->{}", message);
+    }
+
+}
