@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
 import top.anyel.consumer.model.Message;
 import top.anyel.consumer.services.MessageService;
 
@@ -26,7 +25,5 @@ public class Consumer {
         log.info("Message received from QUEUE.B ->{}", message);
         messageService.saveMessage(message);
     }
-
-
 
 }
